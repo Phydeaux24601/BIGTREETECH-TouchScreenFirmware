@@ -25,8 +25,8 @@
  *
  * Default value is: 1 for LED_OFF
 */
-#define STARTUP_KNOB_LED_COLOR 0         // LED_OFF
-#define KEEP_KNOB_LED_COLOR_MARLIN_MODE  // Keeps the LED state in Marlin Mode
+//#define STARTUP_KNOB_LED_COLOR 0         // LED_OFF
+//#define KEEP_KNOB_LED_COLOR_MARLIN_MODE  // Keeps the LED state in Marlin Mode
 
 /**
  * Default LCD Brightness and LCD IDLE Brightness
@@ -68,19 +68,19 @@
 /**
  *  Text displayed at the top of the TFT in Marlin Mode.
  */
-#define ST7920_BANNER_TEXT "LCD12864 Simulator"
+//#define ST7920_BANNER_TEXT "LCD12864 Simulator"
 
 /**
  *  show banner text at the top of the TFT in Marlin Mode.
  */
-#define ST7920_SHOW_BANNER true //to enabled: true | to disabled: false
+#define ST7920_SHOW_BANNER false //to enabled: true | to disabled: false
 /**
  * Run Marlin Mode in Fullscreen
  *
  *  Options:  0: Disabled. RECOMMENDED FOR TFT24
  *            1: Enabled Marlin Fullscreen mode.
  */
-#define DEFAULT_ST7920_FULLSCREEN_MODE 0 // 0: Disabled. RECOMMENDED FOR TFT24
+#define DEFAULT_ST7920_FULLSCREEN_MODE 1 // 0: Disabled. RECOMMENDED FOR TFT24
 
 /**
  * Keep Serial always On (ONLY SUPPORTED ON TFT24 V1.1, TFT35 V3.0, AND TFT28 V3.0)
@@ -155,8 +155,8 @@
 
 //                         PLA      PETG      ABS
 #define PREHEAT_LABELS   {"PLA",   "PETG",   "ABS"}
-#define PREHEAT_BED      {60,      70,       100}
-#define PREHEAT_HOTEND   {200,     250,      230}
+#define PREHEAT_BED      {50,      80,       100}
+#define PREHEAT_HOTEND   {210,     240,      230}
 
 #define HEAT_MAX_TEMP    {150,    275,       275,       275,       275,       275,       275}    //max temperature can be set
 #define HEAT_SIGN_ID     {"B:",   "T0:",     "T1:",     "T2:",     "T3:",     "T4:",     "T5:"}
@@ -182,16 +182,16 @@
 
 // Extrude speed mm/min
 #define EXTRUDE_SLOW_SPEED   60
-#define EXTRUDE_NORMAL_SPEED 600
+#define EXTRUDE_NORMAL_SPEED 300
 #define EXTRUDE_FAST_SPEED   1200
 
 // Size of machine
-#define X_MIN_POS 0
-#define Y_MIN_POS 0
+#define X_MIN_POS -55  
+#define Y_MIN_POS -55
 #define Z_MIN_POS 0
-#define X_MAX_POS 235
-#define Y_MAX_POS 235
-#define Z_MAX_POS 250
+#define X_MAX_POS 55
+#define Y_MAX_POS 55
+#define Z_MAX_POS 140
 
 // Specify a pause position as { X, Y, Z_raise }
 #define NOZZLE_PAUSE_RETRACT_LENGTH 15   // (mm)
@@ -220,7 +220,7 @@
  * Manual Leveling
  * Move to four corner points to Leveling manually (Point 1, Point 2, Point 3, Point 4)
  */
-#define LEVELING_EDGE_DISTANCE     20    // Inset distance from bed's edge for calulating leveling point location.
+#define LEVELING_EDGE_DISTANCE     5     // Inset distance from bed's edge for calulating leveling point location.
 #define LEVELING_POINT_Z           0.2f  // Z-axis position when nozzle stays for leveling
 #define LEVELING_POINT_MOVE_Z      10.0f // Z-axis position when nozzle move to next point
 #define LEVELING_POINT_XY_FEEDRATE 6000  // (mm/min) X and Y axes move feedrate
@@ -337,12 +337,12 @@
  * Enable Start & End G-code in SETTINGS -> FEATURE menu.
  */
 // Start G-code - run this G-code before starting print
-#define PRINT_START_GCODE "G28 XY R10\n" // Raise Z 10mm before homing X & Y
+#define PRINT_START_GCODE "G28\n" // Raise Z 10mm before homing X & Y
 
 // End G-code - run this G-code after finishing print
 #define PRINT_END_GCODE "G90\nG1 E-4\nG92 E0\nM18\n" // Switch to absolute positioning, reduce filament pressure by performing small retract, reset extruder position, disable steppers
 
 // Cancel G-code - run this G-code after canceling print
-#define PRINT_CANCEL_GCODE "G28 XY R10\n" // Home XY and raise Z 10mm
+#define PRINT_CANCEL_GCODE "G28\n" // Home XY and raise Z 10mm
 
 #endif
